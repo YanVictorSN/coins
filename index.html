@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <title>Cotação de Moedas</title>
+</head>
+<body>
+    <main>
+        <h1>Cotação de Moedas</h1>
+        <img src="assets/imgs/saving.png" alt="">
+    <select name="" id="selectCoin">
+        <option value="0">Escolha uma Moeda</option>
+        <option value="1">BTC-BRL</option>
+        <option value="2">EUR-BRL</option>
+        <option value="3">USD-BRL</option>
+    </select>
+    <h2>Período de Cotação</h2>
+    <div>
+        <label for="">Início</label>
+        <input id='startDate'type="date">
+        <label for="">Fim</label>
+        <input id='endDate' type="date">
+    </div>
+    <button id="btnPrice" >Cotar</button>
+    <section id="modal">
+        <table>
+            <tr>
+                <th>Moeda</th>
+                <th>Valor Máximo</th>
+                <th>Valor Mínimo</th>
+                <th>Tempo</th>
+            </tr>
+            <tbody id="tableCoin">
+                </tbody>
+        </table>
+        <img id="deletModal" src="assets/imgs/cruz (1).png" alt="">
+    </section>
+    </main>
+    <script src="index.js"></script>
+</body>
+</html>
