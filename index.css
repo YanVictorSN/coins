@@ -1,0 +1,98 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items:center;
+    flex-direction: column;
+   background-color: rgb(159, 204, 204);
+}
+h1 {
+    font-family: 'Roboto', sans-serif;
+    font-size: 7vh;
+}
+h2 {
+    font-family: 'Roboto', sans-serif;
+}
+main {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items:center;
+    flex-direction: column;
+    padding-top: 5vw;
+    gap:1vw;
+}
+img {
+    width: 10vw;
+    padding: 1vw;
+}
+select {
+    font-family: 'Roboto', sans-serif;
+    border: none;
+    font-size: 2.5vh;
+}
+label {
+    font-family: 'Roboto', sans-serif;
+    font-size: 3vh;
+}
+option {
+    font-family: 'Roboto', sans-serif;
+    font-size: 2.5vh;
+}
+button {
+    width:6vw;
+    height: 4.5vh;
+    background-color: rgb(88, 94, 94);
+    border: none;
+    border-radius: 1vw;
+    color: rgb(230, 231, 231);
+    font-size: 3vh;
+    transition: 1s ease-in-out;
+    cursor: pointer;
+}
+button:hover {
+    transition: 1s ease-in-out;
+    background-color: rgb(48, 117, 71);
+}
+input {
+    font-family: 'Roboto', sans-serif;
+    font-size: 2.5vh;
+    border: none;
+    transition: 1s ease-in-out;
+    cursor: pointer;
+}
+input:hover {
+    background-color: rgb(115, 194, 141);
+    transition: 1s ease-in-out;
+}
+section {
+    position: fixed;
+    width: 40vw;
+    visibility: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 70vh;
+    z-index: 1;
+    border-radius: 1vw;
+    background-color: rgb(127, 195, 204);
+}
+td,tr,th {
+    font-family: 'Roboto', sans-serif;
+    border: solid 1px black;
+    padding: 0.5vw;
+    border-radius: 1vw;
+}
+#deletModal {
+    position: fixed;
+    top: 4.5vw;
+    left: 66.5vw;
+    width: 4vw;
+    cursor: pointer;
+}
