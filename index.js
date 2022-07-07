@@ -13,13 +13,11 @@ deletModal.addEventListener('click', delet)
 
 function delet() {
     document.querySelector('section').style.visibility = 'hidden';
-    for (let x = 0; x < 10; x++) {
-        tableCoin.deletRow(x);
-    }
+    location.reload();
 }
 
 //Funções para pegar dados das datas
-btnPrice.addEventListener('click', test);
+btnPrice.addEventListener('click', createTable);
 
     startDate.addEventListener('change', dateStart);
     endDate.addEventListener('change', dateEnd);
@@ -30,34 +28,35 @@ btnPrice.addEventListener('click', test);
 
     function dateStart(){
         startDateValue = startDate.value
-        startDateValueFormated =  startDateValue.replace('-','');
-        console.log(startDateValue);
+        startDateValueFormated =  startDateValue.replace(/-/g,'');
+        console.log(startDateValueFormated);
         let x = new Date(startDateValue)
         x1 = x.getTime()/100000
-        console.log(x1)
         return x1
     }
     function dateEnd(){
         endDateValue = endDate.value
-        endDateValueFormated = endDateValue.replace('-','');
+        endDateValueFormated = endDateValue.replace(/-/g,'');
         console.log(endDateValue);
         let y = new Date(endDateValue)
         y1 = y.getTime()/100000
-        console.log(y1)
         return y1
     }
-    function test() {
+    function createTable() {
         
     fetch(`https://economia.awesomeapi.com.br/${coinTest}/10?start_date=${startDateValueFormated}&end_date=${endDateValueFormated}`, { method: 'GET'})
         .then((response) => {
-            return response.json();
-        })
+            if(response.ok) {
+                return response.json();
+            } 
+                return Promise.reject('Tente novamente mais tarde.');
+})
         .then((data) => {
             return data
         })
         .then((data)=> {
-            
-         for (let x = 0; x < 10; x++){
+
+         for (let x = 0; x <= 10; x++){
            let tr = tableCoin.insertRow(x);
 
             let tableCode = tr.insertCell(0);
@@ -66,7 +65,7 @@ btnPrice.addEventListener('click', test);
             let time = tr.insertCell(3);
 
             let timetest = new Date (data[x].timestamp*1000).toLocaleString();
-            // let othertest = timetest.;
+
             tableCode.innerHTML = data[0].code;
             tableName.innerHTML = data[x].high;
             tableValor.innerHTML = data[x].low;
@@ -81,10 +80,9 @@ btnPrice.addEventListener('click', test);
 
 selectCoin.addEventListener('change', selectedCoin);
 let coinTest = '';
-//Função para selecionar a moeda
+
 function selectedCoin() {
     const coinValue = selectCoin.options;
-    console.log(coinValue);
     switch (coinValue.selectedIndex) {
         case 1:
         coinTest = 'BTC-BRL'
@@ -124,22 +122,9 @@ btnPrice.addEventListener('click', request);
         }
         console.log(coin)
         return coin;
-        
     })
         .then((coin)=> {
             result.innerHTML = coin
         }) 
     }
-    
 }
-
-
-       
-
-
-
-
-
-// Verificar erros a partir do 200.status == 200.
-
-// Como tratar a interface?
